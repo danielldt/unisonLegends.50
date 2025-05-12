@@ -1,7 +1,7 @@
 import { Client, Room } from 'colyseus.js';
 import { authService } from './authService';
 
-const COLYSEUS_URL = 'ws://localhost:3001';
+const COLYSEUS_URL = process.env.REACT_APP_COLYSEUS_URL || 'ws://localhost:3001';
 
 class GameService {
   private client: Client;
