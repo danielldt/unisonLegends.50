@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import pixel font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Import RPG Awesome */
+@import 'rpg-awesome/css/rpg-awesome.min.css';
+
+body {
+  @apply font-pixel bg-brown-panel text-ui-dark;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+/* Reusable component styles */
+@layer components {
+  .pixel-border {
+    @apply border-3 border-ui-dark rounded-sm shadow-md;
+  }
+  
+  .panel {
+    @apply bg-brown-panel pixel-border p-2 my-2;
+  }
+  
+  .rpg-button {
+    @apply bg-gold font-pixel text-ui-dark pixel-border px-3 py-2 hover:bg-gold-light active:bg-gold-dark active:translate-y-px transition-all;
+  }
+  
+  .stat-bar {
+    @apply h-5 rounded overflow-hidden border-2 border-ui-dark relative;
+  }
+  
+  .stat-progress {
+    @apply h-full absolute top-0 left-0;
+  }
+  
+  .stat-text {
+    @apply text-xs absolute right-1 top-0.5 text-ui-dark z-10;
+  }
+
+  .icon {
+    @apply text-lg inline-block align-middle;
+  }
+}
+
+/* Add custom shadow glow effect */
+.shadow-glow {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Add pulse animation */
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pulse-animation {
+  animation: pulse-animation 2s infinite;
+} 
