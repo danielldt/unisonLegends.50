@@ -16,7 +16,7 @@ dotenv.config();
 // Initialize database
 AppDataSource.initialize()
     .then(() => {
-        
+        console.log("Database initialized");
     })
     .catch((error) => {
         console.error("Error initializing database:", error);
@@ -47,10 +47,8 @@ const gameServer = new Server({
 });
 
 // Register your room handlers
-gameServer.define("game_room", GameRoom, {
-    path: '/colyseus'
-});
+gameServer.define("game_room", GameRoom);
 
 // Start the server
 server.listen(port);
- 
+console.log(`Server listening on port ${port}`); 
