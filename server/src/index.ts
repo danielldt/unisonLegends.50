@@ -47,7 +47,9 @@ const gameServer = new Server({
 });
 
 // Register your room handlers
-gameServer.define("game_room", GameRoom);
+gameServer.define("game_room", GameRoom, {
+    path: '/colyseus'
+});
 
 // Start the server
 server.listen(port);
